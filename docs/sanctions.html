@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanctions Policy — VeriCapture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0A0A0E; color: #ccc; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
+        h1 { color: #fff; font-size: 32px; margin-bottom: 8px; }
+        h1 span { color: #14F195; }
+        h2 { color: #14F195; font-size: 18px; margin-top: 32px; margin-bottom: 12px; }
+        h3 { color: #00D4AA; font-size: 16px; margin-top: 20px; margin-bottom: 8px; }
+        p, li { color: #999; font-size: 14px; margin: 8px 0; }
+        ul { margin-left: 20px; }
+        a { color: #9945FF; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .warning { color: #FFE156; font-weight: bold; }
+        .important { color: #FF4444; font-weight: bold; }
+        .date { color: #666; font-size: 12px; margin-bottom: 24px; }
+        .nav { border-bottom: 1px solid #222; padding-bottom: 16px; margin-bottom: 32px; }
+        .nav a { margin-right: 20px; font-size: 14px; }
+        .footer { border-top: 1px solid #222; padding-top: 24px; margin-top: 48px; color: #555; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="sanctions.html">Sanctions</a>
+            <a href="copyright.html">Copyright</a>
+            <a href="license.html">License</a>
+        </nav>
+
+        <h1><span>VeriCapture</span> &mdash; Sanctions Policy</h1>
+        <p class="date">Effective: March 2026</p>
+
+        <h2>1. Regulatory Compliance</h2>
+        <p>VeriCapture ("the App") is developed and published by MidMightBit Games (Melbourne, VIC, Australia). We are committed to compliance with all applicable international sanctions and export control regulations, including but not limited to:</p>
+        <ul>
+            <li><strong>OFAC</strong> — United States Office of Foreign Assets Control</li>
+            <li><strong>EU</strong> — European Union restrictive measures</li>
+            <li><strong>UK OFSI</strong> — United Kingdom Office of Financial Sanctions Implementation</li>
+            <li><strong>UN</strong> — United Nations Security Council sanctions</li>
+            <li><strong>Australian DFAT</strong> — Department of Foreign Affairs and Trade consolidated sanctions list</li>
+        </ul>
+        <p>The App implements on-device geographic detection to restrict access from sanctioned jurisdictions. By using VeriCapture, you represent and warrant that you are not located in, a resident of, or a national of any sanctioned jurisdiction, and that you are not a person or entity on any applicable sanctions list.</p>
+
+        <h2>2. Comprehensively Sanctioned Jurisdictions</h2>
+        <p>Access to VeriCapture is <span class="important">fully blocked</span> from the following comprehensively sanctioned jurisdictions:</p>
+        <ul>
+            <li>Cuba</li>
+            <li>Iran</li>
+            <li>North Korea (DPRK)</li>
+            <li>Syria</li>
+            <li>Russia</li>
+            <li>Afghanistan</li>
+        </ul>
+        <p>Users detected in these jurisdictions will be unable to access the App's functionality.</p>
+
+        <h2>3. Partially Sanctioned &amp; High-Risk Jurisdictions</h2>
+        <p>The following jurisdictions are subject to partial sanctions, sector-specific restrictions, or are considered high-risk under one or more of the regulatory frameworks listed above. Access from these jurisdictions is <span class="important">blocked</span>:</p>
+        <ul>
+            <li>Belarus</li>
+            <li>Myanmar (Burma)</li>
+            <li>Venezuela</li>
+            <li>Zimbabwe</li>
+            <li>Sudan</li>
+            <li>South Sudan</li>
+            <li>Somalia</li>
+            <li>Yemen</li>
+            <li>Libya</li>
+            <li>Democratic Republic of the Congo (DRC)</li>
+            <li>Central African Republic</li>
+            <li>Lebanon</li>
+            <li>Mali</li>
+            <li>Haiti</li>
+            <li>Nicaragua</li>
+            <li>Iraq</li>
+            <li>Ethiopia</li>
+        </ul>
+
+        <h2>4. Complete Blocked Region List</h2>
+        <p>For clarity, the complete list of all 23 geo-blocked regions is:</p>
+        <ol>
+            <li>Cuba</li>
+            <li>Iran</li>
+            <li>North Korea (DPRK)</li>
+            <li>Syria</li>
+            <li>Russia</li>
+            <li>Afghanistan</li>
+            <li>Belarus</li>
+            <li>Myanmar (Burma)</li>
+            <li>Venezuela</li>
+            <li>Zimbabwe</li>
+            <li>Sudan</li>
+            <li>South Sudan</li>
+            <li>Somalia</li>
+            <li>Yemen</li>
+            <li>Libya</li>
+            <li>Democratic Republic of the Congo (DRC)</li>
+            <li>Central African Republic</li>
+            <li>Lebanon</li>
+            <li>Mali</li>
+            <li>Haiti</li>
+            <li>Nicaragua</li>
+            <li>Iraq</li>
+            <li>Ethiopia</li>
+        </ol>
+
+        <h2>5. Detection Method</h2>
+        <p>VeriCapture determines the user's jurisdiction using on-device signals only. These include:</p>
+        <ul>
+            <li><strong>SIM country code</strong> — the mobile country code (MCC) reported by the device's SIM card</li>
+            <li><strong>Network country code</strong> — the country code reported by the mobile network operator</li>
+            <li><strong>Device locale</strong> — the language and region settings configured on the device</li>
+            <li><strong>Timezone</strong> — the device's current timezone setting</li>
+        </ul>
+        <p>If any of these signals indicate a sanctioned or restricted jurisdiction, access will be denied.</p>
+
+        <h3>5.1 No GPS or Location Services</h3>
+        <p>VeriCapture does <span class="important">not</span> use GPS, fine location, coarse location, or any other location service APIs. The App does not request or require location permissions.</p>
+
+        <h2>6. Privacy-Preserving Design</h2>
+        <p>Sanctions compliance is performed entirely on-device. Specifically:</p>
+        <ul>
+            <li>No location data is transmitted to any server, API, or third party.</li>
+            <li>No geographic signals are stored, logged, or persisted beyond the immediate runtime check.</li>
+            <li>No GPS coordinates are accessed or collected at any time.</li>
+            <li>No personally identifiable information is used for sanctions screening.</li>
+        </ul>
+        <p>For full details on data handling, see our <a href="privacy.html">Privacy Policy</a>.</p>
+
+        <h2>7. Circumvention Prohibited</h2>
+        <p>Any attempt to circumvent, bypass, or defeat VeriCapture's geographic restrictions is <span class="important">strictly prohibited</span>. Prohibited circumvention methods include, but are not limited to:</p>
+        <ul>
+            <li>Use of virtual private networks (VPNs) to mask geographic location</li>
+            <li>Use of proxy servers, Tor, or similar anonymisation tools</li>
+            <li>SIM spoofing, SIM swapping, or use of foreign SIM cards to misrepresent location</li>
+            <li>Manipulation of device locale, timezone, or network settings to evade detection</li>
+            <li>Use of modified, rooted, or jailbroken devices to bypass geographic checks</li>
+        </ul>
+        <p>Any user found to be circumventing sanctions restrictions may have their access to the App terminated immediately and may be subject to legal action under applicable law.</p>
+
+        <h2>8. Disclaimer</h2>
+        <p>While MidMightBit Games makes commercially reasonable efforts to comply with all applicable sanctions, no on-device detection method is infallible. MidMightBit Games does not guarantee that access will be blocked from every sanctioned jurisdiction under every circumstance.</p>
+        <p>Users are solely responsible for ensuring that their use of VeriCapture complies with all laws and regulations applicable to their jurisdiction.</p>
+
+        <h2>9. Changes to This Policy</h2>
+        <p>MidMightBit Games reserves the right to update the list of sanctioned jurisdictions and detection methods at any time to reflect changes in international sanctions regimes. Updates will be posted to this page with a revised effective date.</p>
+
+        <h2>10. Contact</h2>
+        <p>For questions regarding this sanctions policy, contact us at:</p>
+        <p><a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a></p>
+        <p>MidMightBit Games — Melbourne, VIC, Australia</p>
+
+        <div class="footer">
+            <p>&copy; 2026 MidMightBit Games. All rights reserved.</p>
+            <p style="margin-top: 8px;">
+                <a href="privacy.html">Privacy Policy</a> &middot;
+                <a href="terms.html">Terms of Service</a> &middot;
+                <a href="disclaimer.html">Disclaimer</a> &middot;
+                <a href="sanctions.html">Sanctions Policy</a> &middot;
+                <a href="copyright.html">Copyright</a> &middot;
+                <a href="license.html">License</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

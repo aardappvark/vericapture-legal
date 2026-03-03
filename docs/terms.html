@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — VeriCapture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0A0A0E; color: #ccc; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
+        h1 { color: #fff; font-size: 32px; margin-bottom: 8px; }
+        h1 span { color: #14F195; }
+        h2 { color: #14F195; font-size: 18px; margin-top: 32px; margin-bottom: 12px; }
+        p, li { color: #999; font-size: 14px; margin: 8px 0; }
+        ul { margin-left: 20px; }
+        a { color: #9945FF; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .warning { color: #FFE156; font-weight: bold; }
+        .important { color: #FF4444; font-weight: bold; }
+        .date { color: #666; font-size: 12px; margin-bottom: 24px; }
+        .nav { border-bottom: 1px solid #222; padding-bottom: 16px; margin-bottom: 32px; }
+        .nav a { margin-right: 20px; font-size: 14px; }
+        .footer { border-top: 1px solid #222; padding-top: 24px; margin-top: 48px; color: #555; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="sanctions.html">Sanctions</a>
+            <a href="copyright.html">Copyright</a>
+            <a href="license.html">License</a>
+        </div>
+
+        <h1>Terms of <span>Service</span></h1>
+        <p class="date">Effective: March 2026</p>
+
+        <p>These Terms of Service ("Terms") govern your use of VeriCapture ("the App"), a media verification application for the Solana Seeker device, developed by MidMightBit Games ("we", "us", "our"). By installing, accessing, or using the App, you agree to be bound by these Terms. If you do not agree to these Terms, do not install or use the App.</p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By downloading, installing, or using VeriCapture, you acknowledge that you have read, understood, and agree to be bound by these Terms, our <a href="privacy.html">Privacy Policy</a>, our <a href="disclaimer.html">Disclaimer &amp; Risk Disclosure</a>, and our <a href="sanctions.html">Sanctions Policy</a>. If you are using the App on behalf of an organisation, you represent that you have authority to bind that organisation to these Terms.</p>
+
+        <h2>2. Description of Service</h2>
+        <p>VeriCapture is a media verification application that creates SHA-256 hashes of photos and videos, and records those hashes on the Solana blockchain as immutable proof that a specific file existed in a specific form at a specific time.</p>
+        <p>Key features include:</p>
+        <ul>
+            <li>SHA-256 hashing of photos and videos captured on or stored on your device</li>
+            <li>Two-stage hash chain: Stage 1 commits the content hash on-chain, Stage 2 commits a sealed hash for tamper detection</li>
+            <li>Media verification history with on-chain transaction references</li>
+            <li>Optional wallet connection for Seeker platform identity and SGT verification</li>
+            <li>Free hash recording for SGT holders; SOL or SKR payment for others</li>
+        </ul>
+        <p><strong style="color: #FF4444;">The App NEVER uploads your photos or videos. Only cryptographic hashes are created and recorded on-chain.</strong> Your media files remain solely on your device at all times.</p>
+
+        <h2>3. Nature of Media Hashes</h2>
+        <p>You acknowledge and agree that:</p>
+        <ul>
+            <li>SHA-256 hashes are <strong style="color: #ccc;">one-way cryptographic functions</strong> &mdash; the original media file cannot be reconstructed from the hash</li>
+            <li>Hashes recorded on the Solana blockchain are <strong style="color: #FF4444;">immutable and permanent</strong> &mdash; they cannot be edited, deleted, or removed once confirmed on-chain</li>
+            <li>A hash proves that a specific file existed in a specific form at a specific time, but it does <strong style="color: #FF4444;">not prove</strong> who took the photo or video, where it was taken, or that the file was not modified before hashing</li>
+            <li>Two-stage verification (Stage 1: content hash, Stage 2: sealed hash) provides tamper detection for the hashed file, but does not verify the authenticity of the original capture event</li>
+            <li>On-chain hashes are <strong style="color: #FF4444;">not legal evidence</strong> in any jurisdiction unless specifically accepted as such by the relevant authority</li>
+            <li>The accuracy of hashes depends on the integrity of the media file at the time of hashing</li>
+            <li>Hash recording is subject to Solana network availability and confirmation times</li>
+        </ul>
+
+        <h2>4. Eligibility</h2>
+        <p>To use VeriCapture, you must:</p>
+        <ul>
+            <li>Be at least 18 years of age or the age of majority in your jurisdiction, whichever is greater</li>
+            <li>Own or have authorised access to the Solana Seeker or compatible Android device on which the App is installed</li>
+            <li>Not be located in, a resident of, or a national of any region listed in our <a href="sanctions.html">Sanctions Policy</a></li>
+            <li>Not be on any sanctioned persons list maintained by OFAC, the EU, UK OFSI, the UN, or Australian DFAT</li>
+            <li>Have the legal right to hash and verify the media files you submit to the App</li>
+        </ul>
+
+        <h2>5. Wallet Connection</h2>
+        <p>The App offers optional Solana wallet connection via Sign In With Solana (SIWS). By connecting your wallet, you acknowledge that:</p>
+        <ul>
+            <li>Wallet connection is used for <strong style="color: #ccc;">platform identity verification</strong>, SGT ownership checking, and hash recording payments</li>
+            <li>Your public wallet address is stored locally on your device</li>
+            <li>The App may initiate on-chain SOL or SKR payment transactions for hash recording, but <strong style="color: #ccc;">only with your explicit approval</strong> via your wallet application</li>
+            <li>You are solely responsible for reviewing and approving every transaction presented by your wallet</li>
+            <li>You are responsible for the security of your wallet, private keys, and seed phrases</li>
+            <li>We have no access to your private keys and cannot recover lost funds</li>
+            <li>You can disconnect your wallet at any time from within the App</li>
+        </ul>
+
+        <h2>6. SGT Verification</h2>
+        <p>Seeker Genesis Token (SGT) verification is an optional feature that checks token ownership via the Solana blockchain. If you hold an SGT, you receive <strong style="color: #ccc;">free hash recording</strong> at no additional cost.</p>
+        <ul>
+            <li>SGT status is determined by on-chain data and is not controlled by us</li>
+            <li>SGT verification requires an active wallet connection</li>
+            <li>We make no representations about the value, utility, or future availability of SGT outside of this App</li>
+            <li>SGT benefits within the App may change at our discretion</li>
+        </ul>
+
+        <h2>7. Payments and Hash Recording</h2>
+        <p>Non-SGT holders may record hashes using SOL or SKR tokens. These are <strong style="color: #ccc;">on-chain transactions</strong> processed on the Solana blockchain.</p>
+        <ul>
+            <li>All payments are final and non-refundable once confirmed on-chain</li>
+            <li>Transaction fees (network gas fees) are your responsibility</li>
+            <li>We do not control Solana network congestion, transaction confirmation times, or network availability</li>
+            <li>Payment amounts are denominated in SOL or SKR &mdash; we do not guarantee any fiat currency equivalent</li>
+            <li>Each two-stage verification (Stage 1 and Stage 2) constitutes a single hash recording transaction</li>
+        </ul>
+
+        <h2>8. No Financial Services</h2>
+        <p class="important">VERICAPTURE IS NOT A FINANCIAL SERVICE, EXCHANGE, BROKER, CUSTODIAN, OR INVESTMENT PLATFORM.</p>
+        <p>Wallet connection is provided solely for Seeker platform identity verification, SGT checking, and hash recording payments. The App does not:</p>
+        <ul>
+            <li>Provide investment, financial, tax, or legal advice of any kind</li>
+            <li>Operate as a money services business, exchange, or broker</li>
+            <li>Custody, hold, or manage your digital assets</li>
+            <li>Facilitate token swaps, trading, or speculative activity</li>
+            <li>Make any representations about the value or future value of any digital asset</li>
+        </ul>
+
+        <h2>9. Not Legal Evidence</h2>
+        <p class="important">MEDIA HASHES RECORDED BY VERICAPTURE DO NOT CONSTITUTE LEGAL PROOF OF PHOTO OR VIDEO AUTHENTICITY, LEGAL EVIDENCE, OR LEGAL DOCUMENTATION IN ANY JURISDICTION.</p>
+        <p>On-chain hashes are cryptographic records only. You acknowledge that:</p>
+        <ul>
+            <li>Hashes may not be admissible in any court, tribunal, or legal proceeding</li>
+            <li>Hashes do not prove who captured the photo or video, where it was captured, or the circumstances of capture</li>
+            <li>Hashes do not prove that a media file was unaltered before hashing &mdash; a file may have been edited or manipulated prior to its hash being recorded</li>
+            <li>Two-stage verification detects tampering <em>after</em> the initial hash, not before</li>
+            <li>The App is not a substitute for professional forensic image or video analysis</li>
+            <li>Hashes do not replace official forensic evidence, chain-of-custody documentation, or expert testimony</li>
+            <li>You should not rely on VeriCapture hashes as your sole proof of media authenticity</li>
+        </ul>
+
+        <h2>10. Regional Restrictions</h2>
+        <p>The App is not available in certain regions due to compliance with international sanctions programmes including OFAC (United States), EU restrictive measures, and UN Security Council sanctions. See our <a href="sanctions.html">Sanctions Policy</a> for the full list of restricted regions.</p>
+        <p>You represent and warrant that:</p>
+        <ul>
+            <li>You are not located in, a national of, or a resident of any restricted region</li>
+            <li>You are not on any sanctioned persons list</li>
+            <li>You will not use VPNs, proxies, or other tools to circumvent regional restrictions</li>
+            <li>You will not transfer or make the App available to any person in a restricted region</li>
+        </ul>
+
+        <h2>11. Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+            <li>Use the App in any way that violates applicable laws or regulations, including intellectual property and privacy laws</li>
+            <li>Hash media files that you do not own or do not have the legal right to verify</li>
+            <li>Circumvent regional restrictions or sanctions compliance features</li>
+            <li>Reverse engineer, decompile, or disassemble the App or its hashing mechanisms</li>
+            <li>Redistribute, resell, or sublicense the App or its content</li>
+            <li>Use the App to facilitate or conceal unlawful activity</li>
+            <li>Attempt to interfere with or disrupt the hash recording service or its underlying systems</li>
+            <li>Misrepresent on-chain hashes as legal evidence, forensic proof, or official records of media authenticity</li>
+        </ul>
+
+        <h2>12. Limitation of Liability</h2>
+        <p class="warning">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL MIDMIGHTBIT GAMES, ITS DEVELOPERS, OFFICERS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE APP.</p>
+        <p>This includes, without limitation, damages arising from:</p>
+        <ul>
+            <li>Failure of hashes to be accepted as evidence of media authenticity in any legal proceeding</li>
+            <li>Loss of digital assets, tokens, or funds</li>
+            <li>Failed, delayed, or incorrect on-chain transactions</li>
+            <li>Media files that were altered or manipulated before hashing</li>
+            <li>Immutability of on-chain hashes (inability to edit or delete recorded hashes)</li>
+            <li>Reliance on the App as a sole media verification tool</li>
+        </ul>
+        <p>Our total aggregate liability for any claim arising from or related to the App shall not exceed <strong style="color: #ccc;">AUD $10.00 (ten Australian dollars)</strong>.</p>
+
+        <h2>13. Disclaimer of Warranties</h2>
+        <p class="warning">THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+        <p>We do not warrant that:</p>
+        <ul>
+            <li>The App will provide complete or accurate media verification in any or all conditions</li>
+            <li>On-chain hashes will constitute legal evidence or proof of media authenticity in any jurisdiction</li>
+            <li>The hash recording service will function without interruption or error</li>
+            <li>The App will be compatible with all devices, cameras, media formats, or Android versions</li>
+            <li>SGT verification or wallet connectivity will be available at all times</li>
+            <li>On-chain transactions will complete successfully or within any timeframe</li>
+            <li>Two-stage verification will detect all forms of media tampering</li>
+        </ul>
+
+        <h2>14. Australian Consumer Law</h2>
+        <p>Nothing in these Terms excludes or limits any consumer guarantee under the Australian Consumer Law (Schedule 2 of the <em>Competition and Consumer Act 2010</em> (Cth)) that cannot be excluded or limited by law. To the extent that a consumer guarantee applies and cannot be excluded, our liability is limited to, at our option, resupplying the services or paying the cost of having them resupplied.</p>
+
+        <h2>15. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless MidMightBit Games and its developers, officers, and affiliates from any claims, damages, losses, liabilities, or expenses (including reasonable legal fees) arising from:</p>
+        <ul>
+            <li>Your use of the App</li>
+            <li>Your violation of these Terms</li>
+            <li>Your reliance on on-chain hashes as legal evidence, forensic proof, or official records of media authenticity</li>
+            <li>Any on-chain transactions you approve through your wallet</li>
+            <li>Your violation of any applicable law, regulation, or sanctions programme</li>
+            <li>Hashing media files without proper legal authority or rights</li>
+        </ul>
+
+        <h2>16. Termination</h2>
+        <p>We may update, modify, suspend, or discontinue the App or any of its features at any time without notice. We may also restrict or terminate your access to the App if we reasonably believe you have violated these Terms or applicable law. You may stop using the App at any time by uninstalling it and disconnecting your wallet.</p>
+        <p>Upon termination, on-chain hashes that have already been recorded remain on the Solana blockchain permanently. Any unused hash recording credits are forfeited and non-refundable.</p>
+
+        <h2>17. Changes to Terms</h2>
+        <p>We may update these Terms from time to time. The updated Terms will be posted on this page with a revised effective date. Continued use of the App after changes are posted constitutes acceptance of the updated Terms. We encourage you to review these Terms periodically.</p>
+
+        <h2>18. Severability</h2>
+        <p>If any provision of these Terms is found to be invalid, unlawful, or unenforceable by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it enforceable, or severed if modification is not possible, and the remaining provisions shall continue in full force and effect.</p>
+
+        <h2>19. Governing Law</h2>
+        <p>These Terms are governed by and construed in accordance with the laws of the State of Victoria and the Commonwealth of Australia. You irrevocably submit to the exclusive jurisdiction of the courts of Victoria, Australia, for any disputes arising out of or in connection with these Terms or your use of the App.</p>
+
+        <h2>20. Contact</h2>
+        <p>For questions about these Terms, contact us at:</p>
+        <p><a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a></p>
+        <p style="margin-top: 4px;">MidMightBit Games<br>Melbourne, VIC, Australia</p>
+
+        <div class="footer">
+            <p>&copy; 2026 MidMightBit Games. Melbourne, VIC, Australia.</p>
+            <p style="margin-top: 8px;">
+                <a href="index.html">Home</a> &middot;
+                <a href="privacy.html">Privacy</a> &middot;
+                <a href="disclaimer.html">Disclaimer</a> &middot;
+                <a href="sanctions.html">Sanctions</a> &middot;
+                <a href="copyright.html">Copyright</a> &middot;
+                <a href="license.html">License</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
