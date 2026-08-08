@@ -38,7 +38,7 @@
         </nav>
 
         <h1><span>VeriCapture</span> &mdash; Sanctions Policy</h1>
-        <p class="date">Effective: March 2026</p>
+        <p class="date">Effective: August 2026 &middot; App version 1.2.0</p>
 
         <h2>1. Regulatory Compliance</h2>
         <p>VeriCapture ("the App") is developed and published by MidMightBit Games (Melbourne, VIC, Australia). We are committed to compliance with all applicable international sanctions and export control regulations, including but not limited to:</p>
@@ -86,31 +86,31 @@
         </ul>
 
         <h2>4. Complete Blocked Region List</h2>
-        <p>For clarity, the complete list of all 23 geo-blocked regions is:</p>
+        <p>For clarity, the complete list of all 23 geo-blocked regions, with ISO 3166-1 alpha-2 codes, is:</p>
         <ol>
-            <li>Cuba</li>
-            <li>Iran</li>
-            <li>North Korea (DPRK)</li>
-            <li>Syria</li>
-            <li>Russia</li>
-            <li>Afghanistan</li>
-            <li>Belarus</li>
-            <li>Myanmar (Burma)</li>
-            <li>Venezuela</li>
-            <li>Zimbabwe</li>
-            <li>Sudan</li>
-            <li>South Sudan</li>
-            <li>Somalia</li>
-            <li>Yemen</li>
-            <li>Libya</li>
-            <li>Democratic Republic of the Congo (DRC)</li>
-            <li>Central African Republic</li>
-            <li>Lebanon</li>
-            <li>Mali</li>
-            <li>Haiti</li>
-            <li>Nicaragua</li>
-            <li>Iraq</li>
-            <li>Ethiopia</li>
+            <li>Cuba &mdash; <strong>CU</strong></li>
+            <li>Iran &mdash; <strong>IR</strong></li>
+            <li>North Korea (DPRK) &mdash; <strong>KP</strong></li>
+            <li>Syria &mdash; <strong>SY</strong></li>
+            <li>Russia &mdash; <strong>RU</strong></li>
+            <li>Afghanistan &mdash; <strong>AF</strong></li>
+            <li>Belarus &mdash; <strong>BY</strong></li>
+            <li>Myanmar (Burma) &mdash; <strong>MM</strong></li>
+            <li>Venezuela &mdash; <strong>VE</strong></li>
+            <li>Zimbabwe &mdash; <strong>ZW</strong></li>
+            <li>Sudan &mdash; <strong>SD</strong></li>
+            <li>South Sudan &mdash; <strong>SS</strong></li>
+            <li>Somalia &mdash; <strong>SO</strong></li>
+            <li>Yemen &mdash; <strong>YE</strong></li>
+            <li>Libya &mdash; <strong>LY</strong></li>
+            <li>Democratic Republic of the Congo (DRC) &mdash; <strong>CD</strong></li>
+            <li>Central African Republic &mdash; <strong>CF</strong></li>
+            <li>Lebanon &mdash; <strong>LB</strong></li>
+            <li>Mali &mdash; <strong>ML</strong></li>
+            <li>Haiti &mdash; <strong>HT</strong></li>
+            <li>Nicaragua &mdash; <strong>NI</strong></li>
+            <li>Iraq &mdash; <strong>IQ</strong></li>
+            <li>Ethiopia &mdash; <strong>ET</strong></li>
         </ol>
 
         <h2>5. Detection Method</h2>
@@ -127,12 +127,12 @@
         <p>VeriCapture does <span class="important">not</span> use GPS, fine location, coarse location, or any other location service APIs. The App does not request or require location permissions.</p>
 
         <h2>6. Privacy-Preserving Design</h2>
-        <p>Sanctions compliance is performed entirely on-device. Specifically:</p>
+        <p>The sanctions decision itself is made entirely on-device. Specifically:</p>
         <ul>
-            <li>No location data is transmitted to any server, API, or third party.</li>
-            <li>No geographic signals are stored, logged, or persisted beyond the immediate runtime check.</li>
-            <li>No GPS coordinates are accessed or collected at any time.</li>
+            <li>The SIM country code, network country code, device locale and timezone are read on-device and used only for the immediate check. None of them is transmitted to us, stored, logged or persisted.</li>
+            <li>No GPS coordinates are accessed or collected at any time, and the App holds no location permission.</li>
             <li>No personally identifiable information is used for sanctions screening.</li>
+            <li><strong>One caveat, for completeness:</strong> the App&rsquo;s anonymous usage analytics record an event name and a <em>coarse country derived at the hosting edge from your IP address</em> &mdash; including a <code>geo_blocked</code> event when access is denied. That is a per-country daily counter with no wallet address, device identifier or user ID, it is never joined to the on-device signals above, and it can be switched off in Settings &rsaquo; Privacy. See section 9A of the Privacy Policy.</li>
         </ul>
         <p>For full details on data handling, see our <a href="privacy.html">Privacy Policy</a>.</p>
 

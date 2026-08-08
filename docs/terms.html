@@ -38,7 +38,7 @@
         </div>
 
         <h1>Terms of Service / End-User License Agreement (EULA)</h1>
-        <p class="date">Effective: March 2026</p>
+        <p class="date">Effective: August 2026 &middot; App version 1.2.5</p>
 
         <p>These Terms of Service ("Terms") govern your use of VeriCapture ("the App"), a media verification application for the Solana Seeker device, developed by MidMightBit Games ("we", "us", "our"). By installing, accessing, or using the App, you agree to be bound by these Terms. If you do not agree to these Terms, do not install or use the App.</p>
 
@@ -68,7 +68,8 @@
             <li>Two-stage hash chain: Stage 1 commits the content hash on-chain, Stage 2 commits a sealed hash for tamper detection</li>
             <li>Media verification history with on-chain transaction references</li>
             <li>Optional wallet connection for Seeker platform identity and SGT verification</li>
-            <li>Free hash recording for SGT holders; SOL or SKR payment for others</li>
+            <li>Free capture, hashing, proof recording and verification for everyone &mdash; you pay only the Solana network fee for each on-chain transaction</li>
+            <li>Optional one-time <strong style="color: #ccc;">VeriCapture Pro</strong> purchase (0.01 SOL or 10 SKR) unlocking video proof, unlimited proof history, auto-prove on capture, and certificate export; free for Seeker Genesis Token holders</li>
         </ul>
         <p><strong style="color: #FF4444;">The App NEVER uploads your photos or videos. Only cryptographic hashes are created and recorded on-chain.</strong> Your media files remain solely on your device at all times.</p>
 
@@ -81,7 +82,7 @@
             <li>Two-stage verification (Stage 1: content hash, Stage 2: sealed hash) provides tamper detection for the hashed file, but does not verify the authenticity of the original capture event</li>
             <li>On-chain hashes are <strong style="color: #FF4444;">not legal evidence</strong> in any jurisdiction unless specifically accepted as such by the relevant authority</li>
             <li>The accuracy of hashes depends on the integrity of the media file at the time of hashing</li>
-            <li>Hash recording is subject to Solana network availability and confirmation times</li>
+            <li>Proof recording is subject to Solana network availability and confirmation times</li>
         </ul>
 
         <h2>4. Eligibility</h2>
@@ -97,9 +98,9 @@
         <h2>5. Wallet Connection</h2>
         <p>The App offers optional Solana wallet connection via Sign In With Solana (SIWS). By connecting your wallet, you acknowledge that:</p>
         <ul>
-            <li>Wallet connection is used for <strong style="color: #ccc;">platform identity verification</strong>, SGT ownership checking, and hash recording payments</li>
+            <li>Wallet connection is used for <strong style="color: #ccc;">platform identity verification</strong>, SGT ownership checking, and the optional VeriCapture Pro purchase</li>
             <li>Your public wallet address is stored locally on your device</li>
-            <li>The App may initiate on-chain SOL or SKR payment transactions for hash recording, but <strong style="color: #ccc;">only with your explicit approval</strong> via your wallet application</li>
+            <li>The App may initiate an on-chain SOL or SKR payment transaction for the VeriCapture Pro unlock, but <strong style="color: #ccc;">only with your explicit approval</strong> via your wallet application</li>
             <li>You are solely responsible for reviewing and approving every transaction presented by your wallet</li>
             <li>You are responsible for the security of your wallet, private keys, and seed phrases</li>
             <li>We have no access to your private keys and cannot recover lost funds</li>
@@ -107,7 +108,7 @@
         </ul>
 
         <h2>6. SGT Verification</h2>
-        <p>Seeker Genesis Token (SGT) verification is an optional feature that checks token ownership via the Solana blockchain. If you hold an SGT, you receive <strong style="color: #ccc;">free hash recording</strong> at no additional cost.</p>
+        <p>Seeker Genesis Token (SGT) verification is an optional feature that checks token ownership via the Solana blockchain. If you hold an SGT, you receive <strong style="color: #ccc;">VeriCapture Pro at no charge</strong>. Recording and verifying hashes is free for all users regardless of SGT status.</p>
         <ul>
             <li>SGT status is determined by on-chain data and is not controlled by us</li>
             <li>SGT verification requires an active wallet connection</li>
@@ -115,19 +116,22 @@
             <li>SGT benefits within the App may change at our discretion</li>
         </ul>
 
-        <h2>7. Payments and Hash Recording</h2>
-        <p>Non-SGT holders may record hashes using SOL or SKR tokens. These are <strong style="color: #ccc;">on-chain transactions</strong> processed on the Solana blockchain.</p>
+        <h2>7. Purchases</h2>
+        <p>Creating and verifying proofs is <strong style="color: #ccc;">free</strong>. The only thing the App sells is a single optional upgrade:</p>
         <ul>
-            <li>All payments are final and non-refundable once confirmed on-chain</li>
-            <li>Transaction fees (network gas fees) are your responsibility</li>
-            <li>We do not control Solana network congestion, transaction confirmation times, or network availability</li>
-            <li>Payment amounts are denominated in SOL or SKR &mdash; we do not guarantee any fiat currency equivalent</li>
-            <li>Each two-stage verification (Stage 1 and Stage 2) constitutes a single hash recording transaction</li>
+            <li><strong style="color: #ccc;">VeriCapture Pro</strong> &mdash; a one-time purchase of <strong style="color: #ccc;">0.01 SOL</strong> or <strong style="color: #ccc;">10 SKR</strong> (Seeker token, 6 decimals). There is no subscription and no per-hash charge.</li>
+            <li>Pro unlocks: video proof, unlimited proof history (the free tier shows the most recent 25 records), auto-prove on capture, and Certificate of Authenticity export (PDF + JSON).</li>
+            <li>Holders of a Seeker Genesis Token receive Pro at no charge; no payment is required.</li>
+            <li>Payment is a direct on-chain transfer from your own <strong style="color: #ccc;">non-custodial</strong> wallet to our treasury address, approved by you in your wallet app. We never hold your keys, your funds, or your tokens, and we cannot move them.</li>
+            <li>Solana network fees for every transaction (proofs and the Pro purchase alike) are your responsibility and are not paid to us.</li>
+            <li>Prices are denominated in SOL and SKR &mdash; we do not guarantee any fiat-currency equivalent.</li>
+            <li><strong style="color: #ccc;">Restoring your purchase:</strong> the App disables Android backup, so a Pro unlock does not survive uninstalling or clearing app data. Reconnect the wallet you paid with and tap &ldquo;Restore purchase&rdquo;: the App re-checks your Genesis Token status and scans your wallet's recent transactions for a qualifying payment to our treasury carrying this App's payment reference. Payments made in other MidMightBit Games apps do not unlock VeriCapture Pro, and vice versa.</li>
         </ul>
+        <p>Nothing in these Terms excludes, restricts or modifies any consumer guarantee, right or remedy you may have under the Australian Consumer Law or other applicable consumer protection laws that cannot lawfully be excluded. Except as required by such laws, purchases are final and non-refundable.</p>
 
         <h2>8. No Financial Services</h2>
         <p class="important">VERICAPTURE IS NOT A FINANCIAL SERVICE, EXCHANGE, BROKER, CUSTODIAN, OR INVESTMENT PLATFORM.</p>
-        <p>Wallet connection is provided solely for Seeker platform identity verification, SGT checking, and hash recording payments. The App does not:</p>
+        <p>Wallet connection is provided solely for Seeker platform identity verification, SGT checking, and the optional Pro purchase. The App does not:</p>
         <ul>
             <li>Provide investment, financial, tax, or legal advice of any kind</li>
             <li>Operate as a money services business, exchange, or broker</li>
@@ -168,7 +172,7 @@
             <li>Reverse engineer, decompile, or disassemble the App or its hashing mechanisms</li>
             <li>Redistribute, resell, or sublicense the App or its content</li>
             <li>Use the App to facilitate or conceal unlawful activity</li>
-            <li>Attempt to interfere with or disrupt the hash recording service or its underlying systems</li>
+            <li>Attempt to interfere with or disrupt the proof-recording features or their underlying systems</li>
             <li>Misrepresent on-chain hashes as legal evidence, forensic proof, or official records of media authenticity</li>
         </ul>
 
@@ -191,7 +195,7 @@
         <ul>
             <li>The App will provide complete or accurate media verification in any or all conditions</li>
             <li>On-chain hashes will constitute legal evidence or proof of media authenticity in any jurisdiction</li>
-            <li>The hash recording service will function without interruption or error</li>
+            <li>The proof-recording features will function without interruption or error</li>
             <li>The App will be compatible with all devices, cameras, media formats, or Android versions</li>
             <li>SGT verification or wallet connectivity will be available at all times</li>
             <li>On-chain transactions will complete successfully or within any timeframe</li>
@@ -214,7 +218,7 @@
 
         <h2>16. Termination</h2>
         <p>We may update, modify, suspend, or discontinue the App or any of its features at any time without notice. We may also restrict or terminate your access to the App if we reasonably believe you have violated these Terms or applicable law. You may stop using the App at any time by uninstalling it and disconnecting your wallet.</p>
-        <p>Upon termination, on-chain hashes that have already been recorded remain on the Solana blockchain permanently. Any unused hash recording credits are forfeited and non-refundable.</p>
+        <p>Upon termination, on-chain hashes that have already been recorded remain on the Solana blockchain permanently. A VeriCapture Pro unlock is a one-time purchase tied to the wallet that paid for it; there are no credits or balances to forfeit. Nothing in these Terms excludes, restricts or modifies any consumer guarantee, right or remedy you may have under the Australian Consumer Law or other applicable consumer protection laws that cannot lawfully be excluded. Except as required by such laws, purchases are final and non-refundable.</p>
 
         <h2>17. Changes to Terms</h2>
         <p>We may update these Terms from time to time. The updated Terms will be posted on this page with a revised effective date. Continued use of the App after changes are posted constitutes acceptance of the updated Terms. We encourage you to review these Terms periodically.</p>

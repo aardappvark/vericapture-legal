@@ -37,11 +37,12 @@
         </div>
 
         <h1>Privacy Policy &mdash; Veri<span>Capture</span></h1>
-        <p class="subtitle"><strong>Effective Date: March 2026</strong></p>
+        <p class="subtitle"><strong>Effective Date: August 2026 &middot; App version 1.2.0</strong></p>
 
         <h2>1. Overview</h2>
         <p>VeriCapture ("the App") is published by MidMightBit Games, based in Melbourne, VIC, Australia. The App is a media verification tool for the Solana Seeker device. It creates SHA-256 hashes of photos and videos captured or selected on your device and records those hashes on the Solana blockchain as immutable proof that the media existed in a specific state at a specific time.</p>
-        <p>VeriCapture is built with privacy as a core principle. We do not collect personal data, we do not use analytics or tracking services, we do not store data in the cloud, and we do not serve advertisements. All data remains on your device.</p>
+        <p>VeriCapture is built with privacy as a core principle. We do not collect personal data, we do not use third-party tracking or advertising services, we do not store your content in the cloud, and we do not serve advertisements. Your media and your proof records stay on your device.</p>
+        <p>Two things do leave the device, and both are described in full below: (a) your wallet <em>public</em> address and IP address reach the Solana RPC provider whenever the App reads or writes the blockchain, and (b) the App sends <strong>anonymous, aggregate usage counts</strong> &mdash; an event name and a coarse country, nothing else &mdash; to an analytics endpoint we operate. The analytics can be switched off at any time in <strong>Settings &rsaquo; Privacy</strong>. Separately, the on-chain memo the App writes for each proof is public and permanent; see section 3A.</p>
         <p><strong style="color: #FF4444;">Critical Privacy Commitment:</strong> VeriCapture does <strong style="color: #FF4444;">NOT</strong> upload, transmit, or store your photos or videos on any server. No media files ever leave your device. Only cryptographic hashes &mdash; short, fixed-length strings derived from the file content &mdash; are submitted to the Solana blockchain. These hashes cannot be reversed to reconstruct the original media.</p>
 
         <h2>2. Legal Basis for Data Processing</h2>
@@ -63,13 +64,26 @@
 
         <h3>Stage 2 &mdash; Sealed Hash for Tamper Detection</h3>
         <ul>
-            <li>A sealed hash is computed by combining the Stage 1 content hash with the Stage 1 transaction signature and a timestamp</li>
+            <li>The Stage 1 proof (content hash, transaction signature, timestamp, device-model fingerprint and wallet public address) is written into a <em>copy</em> of your file &mdash; the EXIF UserComment for JPEGs, or a JSON sidecar combined with the file for other formats. Your original file is never modified.</li>
+            <li>A sealed hash is then computed over that sealed copy</li>
             <li>This sealed hash is submitted to the Solana blockchain as a second on-chain record</li>
             <li>Stage 2 creates a tamper-evident chain &mdash; if either the media file or the Stage 1 record is altered, the seal breaks</li>
             <li>Together, Stage 1 and Stage 2 form an unforgeable proof chain anchored to the Solana blockchain</li>
         </ul>
 
         <p>At no point does any media file content leave your device. Only the cryptographic hashes are recorded on-chain. The raw file data is never read into memory beyond what is required for hash computation.</p>
+
+        <h2>3A. What Is Written to the Public Blockchain</h2>
+        <p>Each proof writes one Solana Memo Program transaction. The memo is <strong>public, permanent and readable by anyone</strong>. It contains exactly:</p>
+        <ul>
+            <li>the SHA-256 hash (Stage 1) or sealed hash (Stage 2) of the file</li>
+            <li>the <strong>file name</strong> as it appears on your device (Stage 1 only)</li>
+            <li>a Unix timestamp</li>
+            <li>a <strong>device-model fingerprint</strong> &mdash; a 16-character digest of your device&rsquo;s make, model and build strings. It identifies the <em>model and firmware build</em>, not your individual handset: every device of the same model and build produces the same value. It contains no serial number, advertising ID or Android ID.</li>
+            <li>for Stage 2, the Stage 1 transaction signature</li>
+        </ul>
+        <p>The transaction is signed by your wallet, so your wallet&rsquo;s public address is also visible on-chain, as it is for any Solana transaction. <strong>No media content is ever written on-chain</strong> and a hash cannot be reversed into the original file. If a file name would reveal something you would rather not publish, rename the file before proving it.</p>
+        <p>Sealed copies of your files also carry your wallet public address inside their embedded proof data. Anyone you send a sealed file to can read it.</p>
 
         <h2>4. Data We Store Locally</h2>
 
@@ -79,13 +93,14 @@
             <li>Sealed hashes linking content hashes to on-chain transaction signatures (Stage 2)</li>
             <li>On-chain transaction signatures for both Stage 1 and Stage 2</li>
             <li>Proof status (pending, committed, sealed, failed)</li>
-            <li>Stored in EncryptedSharedPreferences on your device</li>
+            <li>The file name, size, type and &mdash; unless you turn off &ldquo;Store original file paths&rdquo; in Settings &rsaquo; Privacy &mdash; a pointer to where the file lives on your device</li>
+            <li>The wallet public address that signed the proof, and the device-model fingerprint</li>
+            <li>Stored in the App&rsquo;s private app-sandbox storage (standard SharedPreferences). This is readable only by VeriCapture on a non-rooted device, but it is <strong>not</strong> additionally encrypted &mdash; it holds only data that is already public on-chain. The wallet address held for your <em>connection</em> (section 4, below) is separately encrypted.</li>
         </ul>
 
         <h3>App Settings (Local Only)</h3>
         <ul>
-            <li>Default hash recording preferences</li>
-            <li>Notification preferences</li>
+            <li>Capture and privacy preferences, the analytics opt-out, and your Pro entitlement flag</li>
             <li>Stored in standard SharedPreferences on your device</li>
         </ul>
 
@@ -93,20 +108,21 @@
         <ul>
             <li>If you connect a Solana wallet, your public address is stored locally on your device</li>
             <li>Encrypted using Android EncryptedSharedPreferences (AES-256-GCM for values, AES-256-SIV for keys), backed by the Android Keystore</li>
-            <li>Used solely for SGT verification and hash recording payments</li>
+            <li>Used solely for SGT verification, signing your proof transactions, and the optional Pro purchase/restore</li>
             <li>This is a public key only &mdash; we never request, access, or store your private keys</li>
         </ul>
 
         <h2>5. Data We Do NOT Collect</h2>
+        <p>We receive none of the following, on any server of ours:</p>
         <ul>
             <li>Photos, videos, or any media file content</li>
-            <li>Media metadata (EXIF data, GPS coordinates embedded in photos)</li>
-            <li>File names or file paths</li>
+            <li>Media metadata read out of your files (EXIF data, GPS coordinates embedded in photos) &mdash; the App does not read, upload or store them</li>
+            <li>File names, file paths, or proof hashes &mdash; these stay on your device and (for the name and hash) on the public blockchain; they are never sent to us. See section 3A.</li>
             <li>Personal information (name, email, address)</li>
-            <li>Location data</li>
-            <li>Device identifiers</li>
-            <li>Usage analytics or telemetry</li>
-            <li>Crash reports</li>
+            <li>Location data &mdash; no GPS or location permission is requested. Sanctions screening reads the SIM/network country code, device locale and timezone on-device only; see our Sanctions Policy.</li>
+            <li>Persistent device identifiers &mdash; no Android ID, advertising ID, IMEI or serial number. (A device-<em>model</em> fingerprint is written into the public on-chain memo; see section 3A.)</li>
+            <li>Your wallet address, in analytics</li>
+            <li>Crash reports and stack traces</li>
             <li>Advertising identifiers</li>
             <li>Browsing history</li>
             <li>Contact lists</li>
@@ -114,67 +130,88 @@
             <li>Payment card details or bank information</li>
             <li>Cookies or similar tracking technologies</li>
         </ul>
+        <p>What we <em>do</em> receive is limited to anonymous aggregate usage counts &mdash; see section 9A.</p>
 
-        <h2>6. Camera and Media Permissions</h2>
-        <p>VeriCapture requires the following permissions to function:</p>
+        <h2>6. Permissions</h2>
+        <p>VeriCapture declares exactly these Android permissions, and no others:</p>
         <ul>
             <li><strong>CAMERA</strong> &mdash; to capture photos and videos directly within the App for immediate hashing and verification</li>
             <li><strong>READ_MEDIA_IMAGES</strong> &mdash; to access existing photos on your device that you select for hash verification</li>
             <li><strong>READ_MEDIA_VIDEO</strong> &mdash; to access existing videos on your device that you select for hash verification</li>
+            <li><strong>READ_EXTERNAL_STORAGE</strong> (Android 12 and older only) &mdash; the pre-Android-13 equivalent of the two permissions above</li>
+            <li><strong>INTERNET</strong> &mdash; to reach the Solana RPC provider and the analytics endpoint listed in section 9</li>
+            <li><strong>VIBRATE</strong> &mdash; haptic feedback on taps</li>
         </ul>
+        <p>VeriCapture requests <strong>no location permission</strong> (fine, coarse or background), no contacts, no microphone, no phone-state, no exact-alarm and no overlay permission.</p>
         <p><strong>Important:</strong> These permissions are used exclusively to read media file content for SHA-256 hash computation. The App does not upload, copy, or transmit any media files. All file content is processed locally on your device, hashed immediately, and the raw data buffer is released from memory. No media file content is retained beyond the duration of the hash computation.</p>
 
         <h2>7. Wallet Connection (Optional)</h2>
         <p>VeriCapture supports optional wallet connection via Sign In With Solana (SIWS) using the Solana Mobile Wallet Adapter (MWA). Wallet connection enables:</p>
         <ul>
             <li><strong>SGT Verification:</strong> Checking on-chain ownership of a Seeker Genesis Token to unlock free hash recording</li>
-            <li><strong>Hash Recording Payments:</strong> Processing SOL or SKR payments for hash recording (for non-SGT holders)</li>
+            <li><strong>Pro Purchase and Restore:</strong> Processing the optional one-time SOL or SKR payment for VeriCapture Pro, and finding that payment again on-chain if you reinstall</li>
+            <li><strong>Signing Proofs:</strong> Signing the Memo Program transaction for each proof you submit</li>
         </ul>
         <p>The MWA protocol operates locally between apps on your device. No wallet data is transmitted to external servers by MidMightBit Games. We store only your wallet public address (encrypted). We never have access to your private keys or the ability to sign transactions on your behalf without your explicit approval in your wallet app.</p>
 
         <h2>8. Payments and Transactions</h2>
-        <p>VeriCapture offers hash recording that can be paid for with SOL or SKR tokens. SGT holders record hashes for free. These transactions are processed entirely on the Solana blockchain:</p>
+        <p>Recording and verifying proofs is free &mdash; you pay only the Solana network fee. The only purchase is a one-time <strong>VeriCapture Pro</strong> unlock for <strong>0.01 SOL</strong> or <strong>10 SKR</strong>, which is free for Seeker Genesis Token holders. It is processed entirely on the Solana blockchain:</p>
         <ul>
             <li>You approve each transaction individually in your wallet app</li>
+            <li>Each Pro payment carries a VeriCapture-specific reference account, which is how &ldquo;Restore purchase&rdquo; recognises your payment later. Restoring reads only public blockchain data.</li>
             <li>Transaction details are recorded on the public Solana blockchain</li>
             <li>MidMightBit Games does not store payment details, transaction history, or financial records on our servers</li>
             <li>We do not process credit cards, bank transfers, or fiat currency</li>
         </ul>
 
         <h2>9. Network Requests</h2>
-        <p>The App makes the following network requests:</p>
+        <p>The App contacts exactly these endpoints, and no others:</p>
         <ul>
-            <li><strong>Solana RPC Endpoint:</strong> To verify SGT ownership on-chain and submit hash memo transactions. Your wallet public address is sent as part of the query. This is publicly available blockchain data.</li>
+            <li><strong>api.mainnet-beta.solana.com</strong> (Solana Labs public RPC) &mdash; to verify Seeker Genesis Token status, fetch a recent blockhash, submit proof and payment transactions, confirm them, and scan for a prior payment when you restore a purchase. Your wallet&rsquo;s public address and your IP address are visible to this provider. Private keys never leave your wallet.</li>
+            <li><strong>vericapture-analytics.vercel.app</strong> (our analytics endpoint, hosted on Vercel) &mdash; anonymous aggregate usage counts only; see section 9A.</li>
             <li><strong>Mobile Wallet Adapter (MWA):</strong> Local device-to-device communication between VeriCapture and your wallet app. This does not leave your device.</li>
+        </ul>
+        <p>The App enforces HTTPS for all connections and does not permit cleartext traffic.</p>
+
+        <h2>9A. Anonymous Usage Analytics</h2>
+        <p>The App sends anonymous, aggregate usage events to <strong>vericapture-analytics.vercel.app</strong>, an endpoint we operate on Vercel. Each event is a single HTTPS POST whose entire body is one event name from a fixed list (for example <code>app_open</code>, <code>proof_verified</code>, <code>payment_sol</code>, <code>settings_opened</code>).</p>
+        <ul>
+            <li><strong>What is stored:</strong> a count per event name, per country, per day. Nothing else.</li>
+            <li><strong>Country</strong> is derived at Vercel&rsquo;s edge from the request; the raw IP address is not read or stored by us. As with any internet request, the hosting provider processes your IP in transit.</li>
+            <li><strong>Never sent:</strong> your wallet address, media, file names, proof hashes, transaction signatures, device identifiers, or any account or user ID. There is no user ID, session ID or cookie, so events cannot be linked to each other or to you.</li>
+            <li><strong>Opt out:</strong> Settings &rsaquo; Privacy &rsaquo; &ldquo;Anonymous usage analytics&rdquo;. Turning it off stops all transmission immediately.</li>
+            <li>Because the data is aggregate and cannot identify anyone, it is not personal data under the GDPR (Recital 26) and equivalent regimes. We nonetheless provide the opt-out above.</li>
         </ul>
         <p>All network communications use HTTPS/TLS encryption in transit. The App enforces HTTPS for all connections and does not permit cleartext traffic.</p>
 
         <h2>10. IP Address Disclosure</h2>
-        <p>The App does not collect or store your IP address. However, when the App makes network requests to Solana RPC endpoints, <strong>your IP address is transmitted to those services</strong> as part of standard internet protocol. MidMightBit Games has no access to any logs or data collected by third-party RPC providers. We encourage you to review their respective privacy policies.</p>
+        <p>We do not log or store your IP address. However, when the App makes network requests &mdash; to <strong>api.mainnet-beta.solana.com</strong> and to our analytics endpoint at <strong>vericapture-analytics.vercel.app</strong> &mdash; <strong>your IP address is transmitted</strong> as part of standard internet protocol, and is visible to those services and to their hosting providers (Solana Labs and Vercel respectively). Our analytics endpoint uses the request only to derive a coarse country and does not retain the address. We have no access to logs kept by the RPC provider; we encourage you to review its privacy policy.</p>
 
         <h2>11. Data Storage and Security</h2>
-        <p>All data is stored locally on your device. No data is transmitted to any server owned or operated by MidMightBit Games. Security measures include:</p>
+        <p>Your media, proof records and settings are stored locally on your device. The only data that reaches a server we operate is the anonymous aggregate event counts described in section 9A. Security measures include:</p>
         <ul>
-            <li>Wallet public address encrypted with Android EncryptedSharedPreferences (AES-256)</li>
-            <li>Proof chain records encrypted with Android EncryptedSharedPreferences (AES-256)</li>
+            <li>Your connected wallet public address encrypted with Android EncryptedSharedPreferences (AES-256-GCM values, AES-256-SIV keys)</li>
             <li>Encryption keys secured by the Android Keystore</li>
-            <li>HTTPS enforced for all network connections</li>
-            <li>No cloud storage, no server-side databases, no remote backups</li>
-            <li><strong>allowBackup</strong> is set to <strong>false</strong> in the App manifest to prevent wallet and proof data from being included in device backups</li>
+            <li>Proof chain records and settings held in the App&rsquo;s private app-sandbox storage (see section 4)</li>
+            <li>HTTPS enforced for all network connections; cleartext traffic is blocked by the App&rsquo;s network security configuration</li>
+            <li>No cloud storage of your content, no accounts, and no database holding user-level records &mdash; our analytics store holds only per-event, per-country, per-day counters</li>
+            <li><strong>allowBackup</strong> is set to <strong>false</strong> in the App manifest, so no App data is copied into your device&rsquo;s Google backup. Nothing survives uninstalling. A Pro unlock is therefore restored from the blockchain rather than from a backup.</li>
         </ul>
 
         <h2>12. No Accounts Created</h2>
         <p>VeriCapture does not create user accounts. There is no registration, no login system, and no user profiles. Wallet connection via SIWS is optional and used solely for SGT verification and hash recording payments. Disconnecting your wallet removes all wallet-related data from your device.</p>
 
         <h2>13. Third-Party Services</h2>
-        <p>The App uses the following third-party libraries:</p>
+        <p>The App uses the following third parties:</p>
         <ul>
             <li><strong>Solana Mobile Wallet Adapter:</strong> Used to connect to your Solana wallet app on-device. No data is sent to Solana Mobile.</li>
+            <li><strong>Solana Labs public RPC</strong> (api.mainnet-beta.solana.com): receives your wallet public address and IP address. See sections 9 and 10.</li>
+            <li><strong>Vercel</strong>: hosts our analytics endpoint. See section 9A. Vercel acts as our processor.</li>
         </ul>
-        <p>The App does NOT include any:</p>
+        <p>Our analytics are first-party and purpose-built: the App contains <strong>no third-party analytics, advertising, attribution or crash-reporting SDK</strong>. Specifically the App does NOT include any:</p>
         <ul>
-            <li>Analytics SDKs</li>
-            <li>Advertising SDKs</li>
+            <li>Third-party analytics or attribution SDKs (Firebase, GA, Amplitude, AppsFlyer or similar)</li>
+            <li>Advertising SDKs or ad networks</li>
             <li>Crash reporting SDKs</li>
             <li>Social media SDKs</li>
             <li>Push notification services</li>
@@ -188,7 +225,7 @@
             <li>Clear the App's data through Android Settings &gt; Apps &gt; VeriCapture &gt; Clear Data</li>
             <li>Uninstall the App</li>
         </ul>
-        <p>Proof chain records, app settings, and wallet data are removed when the App is uninstalled or its data is cleared.</p>
+        <p>Proof chain records, app settings, and wallet data are removed when the App is uninstalled or its data is cleared. Because Android backup is disabled for this App, none of it is retained in your Google account &mdash; and a VeriCapture Pro unlock must therefore be restored from the blockchain after a reinstall. Anonymous aggregate analytics counters (section 9A) contain no personal data and are retained indefinitely; they cannot be tied to you, so there is nothing in them to delete on request.</p>
         <p><strong>Note:</strong> SHA-256 hashes that have been recorded on the Solana blockchain are immutable and cannot be deleted. This is an inherent characteristic of blockchain technology. However, these on-chain hashes cannot be reversed to recover the original media content.</p>
 
         <h2>15. Cross-Border Data Transfers</h2>
@@ -216,7 +253,7 @@
         <p>You may restrict the processing of your wallet address at any time by disconnecting your wallet. Media files are only processed when you explicitly select them for hashing &mdash; the App never processes files without your direct action. Disconnecting your wallet stops all data processing and removes your wallet address from local storage. You may reconnect at any time to resume the service.</p>
 
         <h3>Right to Object</h3>
-        <p>You may object to the processing of your wallet address at any time by disconnecting your wallet, which removes your wallet address from local storage. Media file hashing is always initiated by you and can be stopped at any time by simply not selecting files for verification.</p>
+        <p>You may object to the processing of your wallet address at any time by disconnecting your wallet, which removes your wallet address from local storage. Media file hashing is always initiated by you and can be stopped at any time by simply not selecting files for verification. Anonymous usage analytics can be switched off in <strong>Settings &rsaquo; Privacy</strong>.</p>
 
         <h3>Right to Portability</h3>
         <p>As all data is stored locally on your device, you have full control over your data at all times. Your wallet public address is the only externally-sourced data element and is already in your possession.</p>
@@ -234,7 +271,7 @@
         <ul>
             <li><strong>Right to Know:</strong> You have the right to know what personal information we collect. The App optionally collects only your wallet public address, stored locally on your device.</li>
             <li><strong>Right to Delete:</strong> You can delete all data by disconnecting your wallet or uninstalling the App.</li>
-            <li><strong>Right to Opt-Out of Sale:</strong> We do not sell, share, or disclose personal information to third parties for monetary or other consideration. There is no "sale" of data to opt out of.</li>
+            <li><strong>Right to Opt-Out of Sale:</strong> We do not sell, share, or disclose personal information to third parties for monetary or other consideration. There is no &ldquo;sale&rdquo; of data to opt out of. Anonymous usage analytics can still be switched off in Settings &rsaquo; Privacy.</li>
             <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your CCPA/CPRA rights.</li>
             <li><strong>Categories of PI Collected:</strong> Identifiers (wallet public address), if you choose to connect a wallet. No sensitive personal information is collected.</li>
             <li><strong>Retention:</strong> Data is retained locally on your device until you delete it or uninstall the App.</li>
