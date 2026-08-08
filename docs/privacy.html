@@ -141,7 +141,9 @@
             <li><strong>READ_EXTERNAL_STORAGE</strong> (Android 12 and older only) &mdash; the pre-Android-13 equivalent of the two permissions above</li>
             <li><strong>INTERNET</strong> &mdash; to reach the Solana RPC provider and the analytics endpoint listed in section 9</li>
             <li><strong>VIBRATE</strong> &mdash; haptic feedback on taps</li>
+            <li><strong>ACCESS_NETWORK_STATE</strong> and <strong>REORDER_TASKS</strong> &mdash; merged in by the Android libraries the App uses (image loading and the Solana Mobile Wallet Adapter, which needs to bring your wallet app to the front and hand control back). Neither reads any content.</li>
         </ul>
+        <p>The list above is the complete set of permissions in the installed APK, including those contributed by third-party libraries.</p>
         <p>VeriCapture requests <strong>no location permission</strong> (fine, coarse or background), no contacts, no microphone, no phone-state, no exact-alarm and no overlay permission.</p>
         <p><strong>Important:</strong> These permissions are used exclusively to read media file content for SHA-256 hash computation. The App does not upload, copy, or transmit any media files. All file content is processed locally on your device, hashed immediately, and the raw data buffer is released from memory. No media file content is retained beyond the duration of the hash computation.</p>
 
